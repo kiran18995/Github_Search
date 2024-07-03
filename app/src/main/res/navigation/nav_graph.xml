@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.kiran.githubsearch.ui.home.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_repositoryFragment"
+            app:destination="@+id/repositoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/repositoryFragment"
+        android:name="com.kiran.githubsearch.ui.repository.RepositoryFragment"
+        android:label="Repository"
+        tools:layout="@layout/fragment_repository">
+        <argument
+            android:name="repoId"
+            app:argType="long" />
+        <argument
+            android:name="ownerLogin"
+            app:argType="string" />
+        <argument
+            android:name="repoName"
+            app:argType="string" />
+    </fragment>
+
+
+</navigation>

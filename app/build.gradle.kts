@@ -57,6 +57,8 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -80,4 +82,14 @@ dependencies {
 
     // Coil
     implementation(libs.coil)
+
+    // Material Design 3
+    implementation(libs.material3)
+
+    // Android Studio Preview support
+    implementation(libs.androidx.ui.tooling.preview)
+    debugImplementation(libs.androidx.ui.tooling)
+    // such as input and measurement/layout
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.activity.compose)
 }
