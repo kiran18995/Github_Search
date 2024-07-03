@@ -18,6 +18,8 @@ android {
         versionName = "1.0"
         val baseUrl = extra.properties["BASE_URL"] as String? ?: "https://api.github.com/"
         buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+        val accessToken = extra.properties["API_READ_ACCESS_TOKEN"] as String? ?: "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"
+        buildConfigField("String", "API_READ_ACCESS_TOKEN", "\"$accessToken\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
