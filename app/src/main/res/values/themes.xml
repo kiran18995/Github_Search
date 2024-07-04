@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.GithubSearch" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="GithubSearch" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryLight</item>
         <item name="colorOnPrimary">@color/colorPrimaryDark</item>
@@ -9,5 +9,8 @@
         <item name="android:textColorSecondary">@color/colorTextSecondary</item>
     </style>
 
-    <style name="Theme.GithubSearch" parent="Base.Theme.GithubSearch" />
+    <style name="LaunchTheme" parent="GithubSearch">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+        <!-- Customize other attributes as needed -->
+    </style>
 </resources>
