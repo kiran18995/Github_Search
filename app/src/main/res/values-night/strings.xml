@@ -2,4 +2,8 @@
 <resources>
     <string name="welcome_to_github_search">Welcome to Github Search</string>
     <string name="repositories_title">Repositories</string>
+    <string name="star_logo_description">star logo description</string>
+    <string name="fork_logo">fork logo</string>
+    <string name="repository_logo">repository logo</string>
+    <string name="welcome_search_message">Welcome! Please enter a repository name to search.</string>
 </resources>
