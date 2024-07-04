@@ -44,5 +44,5 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMoviesAPi(retrofit: Retrofit): GithubApi = retrofit.create(GithubApi::class.java)
+    fun provideGithubAPi(retrofit: Retrofit): GithubApi = retrofit.create(GithubApi::class.java)
 }

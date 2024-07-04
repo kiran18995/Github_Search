@@ -1,4 +1,4 @@
-package com.kiran.githubsearch.data
+package com.kiran.githubsearch.data.models
 
 import com.google.gson.annotations.SerializedName
 

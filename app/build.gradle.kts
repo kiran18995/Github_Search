@@ -18,14 +18,22 @@ android {
         versionName = "1.0"
         val baseUrl = extra.properties["BASE_URL"] as String? ?: "https://api.github.com/"
         buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
-        val accessToken = extra.properties["API_READ_ACCESS_TOKEN"] as String? ?: "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"
+        val accessToken = extra.properties["API_READ_ACCESS_TOKEN"] as String? ?: "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"
         buildConfigField("String", "API_READ_ACCESS_TOKEN", "\"$accessToken\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        release {
+        getByName("debug") {
+            isDebuggable = true
             isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        getByName("release") {
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -95,4 +103,7 @@ dependencies {
     // such as input and measurement/layout
     implementation(libs.androidx.ui)
     implementation(libs.androidx.activity.compose)
+
+    // Shimmer
+    implementation(libs.shimmer)
 }
