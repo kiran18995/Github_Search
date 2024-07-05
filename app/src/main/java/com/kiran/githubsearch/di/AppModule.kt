@@ -32,7 +32,8 @@ object AppModule {
             val request = chain.request().newBuilder().build()
             chain.proceed(request)
         }
-
+        //I have not used header due to key limit
+        //If required add header here and add token in build.gradle(module)
         val client = OkHttpClient.Builder().readTimeout(TIMEOUT, TimeUnit.SECONDS)
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS).addInterceptor(logging)
             .addInterceptor(authInterceptor).build()
