@@ -1,17 +1,13 @@
-@file:OptIn(FlowPreview::class)
-
 package com.kiran.githubsearch.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import androidx.paging.map
 import com.kiran.githubsearch.data.models.Repo
 import com.kiran.githubsearch.data.repository.GithubSearchRepository
 import com.kiran.githubsearch.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

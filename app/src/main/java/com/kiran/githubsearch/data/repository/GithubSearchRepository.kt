@@ -12,7 +12,7 @@ import javax.inject.Inject
 class GithubSearchRepository @Inject constructor(private val githubApi: GithubApi) {
     fun searchRepos(query: String): Flow<PagingData<Repo>> {
         return Pager(config = PagingConfig(
-            pageSize = 1, enablePlaceholders = false, prefetchDistance = 20,
+            pageSize = 1, enablePlaceholders = true, prefetchDistance = 20,
         ), pagingSourceFactory = { GithubSearchDataSource(githubApi, query, 10) }).flow
     }
 }

@@ -3,7 +3,6 @@ package com.kiran.githubsearch.api
 import com.kiran.githubsearch.BuildConfig
 import com.kiran.githubsearch.data.models.Repo
 import com.kiran.githubsearch.data.models.SearchResponse
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -14,8 +13,9 @@ interface GithubApi {
     }
 
     @GET("search/repositories")
-    suspend fun searchRepos(@Query("q") query: String,
-                            @Query("per_page") perPage: Int): SearchResponse
+    suspend fun searchRepos(
+        @Query("q") query: String, @Query("per_page") perPage: Int, @Query("page") page: Int
+    ): SearchResponse
 
     @GET("repos/{owner}/{name}")
     suspend fun getRepo(

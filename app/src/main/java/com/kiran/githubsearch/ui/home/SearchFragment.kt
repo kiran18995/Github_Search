@@ -80,7 +80,7 @@ class SearchFragment : Fragment() {
             viewModel.repoList.collect {
                 when (it) {
                     is Resource.Error -> {
-//                        hideProgressBar()
+                        hideProgressBar()
                         binding.searchWelcomeMessage.visibility = View.GONE
                     }
 
