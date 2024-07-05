@@ -11,8 +11,8 @@
         android:label="Search"
         tools:layout="@layout/fragment_search">
         <action
-            android:id="@+id/action_searchFragment_to_repositoryFragment"
-            app:destination="@+id/repositoryFragment" />
+            android:id="@+id/actionSearchFragmentToRepositoryFragment"
+            app:destination="@id/repositoryFragment" />
     </fragment>
 
     <fragment
@@ -21,15 +21,11 @@
         android:label="Repository"
         tools:layout="@layout/fragment_repository">
         <argument
-            android:name="repoId"
-            app:argType="long" />
-        <argument
-            android:name="ownerLogin"
+            android:name="ownerName"
             app:argType="string" />
         <argument
             android:name="repoName"
             app:argType="string" />
     </fragment>
-
 
 </navigation>
