@@ -18,11 +18,11 @@ class GithubSearchRepository @Inject constructor(private val githubApi: GithubAp
         ), pagingSourceFactory = { GithubSearchDataSource(githubApi, query, 10) }).flow
     }
 
-    fun getRepoDetails(owner: String, name: String) = flow {
+    suspend fun getRepoDetails(owner: String, name: String) = flow {
         try {
             val repoDetails = githubApi.getRepo(owner, name)
+            repoDetails.contributorList = githubApi.getContributors(owner, name)
             if (repoDetails.name.isNotEmpty()) {
-
                 emit(Resource.Success(repoDetails))
             } else {
                 emit(Resource.Error(Throwable("Unable to Make Request")))

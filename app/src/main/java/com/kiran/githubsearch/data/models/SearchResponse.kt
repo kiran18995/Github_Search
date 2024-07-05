@@ -14,8 +14,8 @@ data class Repo(
     @SerializedName("forks_count") val forks: Int?,
     @SerializedName("language") val language: String?,
     @SerializedName("homepage") val homepage: String?,
-    @SerializedName("owner") val owner: Owner
-
+    @SerializedName("owner") val owner: Owner,
+    var contributorList: List<Contributor> = emptyList()
 )
 
 data class SearchResponse(
@@ -29,4 +29,9 @@ data class Owner(
     @SerializedName("login") val login: String,
     @SerializedName("avatar_url") val avatarUrl: String,
     @SerializedName("repoId") var repoId: Long = 0L
+)
+
+data class Contributor(
+    @SerializedName("login") val login: String,
+    @SerializedName("avatar_url") val avatarUrl: String
 )

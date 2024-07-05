@@ -7,4 +7,5 @@
     <string name="repository_logo">repository logo</string>
     <string name="welcome_search_message">Welcome! Please enter a repository name to search.</string>
     <string name="open_project_in_browser">Open project in browser</string>
+    <string name="contributors_title">Contributors</string>
 </resources>

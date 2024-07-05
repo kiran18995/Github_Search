@@ -8,8 +8,11 @@ import com.kiran.githubsearch.data.models.Repo
 import com.kiran.githubsearch.data.repository.GithubSearchRepository
 import com.kiran.githubsearch.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -30,9 +33,11 @@ class SearchViewModel @Inject constructor(
         currentQuery.value = query
     }
 
+    @OptIn(FlowPreview::class)
     private fun searchRepos() {
         viewModelScope.launch {
-            currentQuery.collectLatest { query ->
+            currentQuery.debounce(300) // Debounce to avoid rapid API calls
+                .distinctUntilChanged().collectLatest { query ->
                 _repoList.value = Resource.Loading()
                 if (query.isEmpty()) {
                     _repoList.value = Resource.EmptyData()

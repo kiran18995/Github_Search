@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.kiran.githubsearch.data.models.Repo
 import com.kiran.githubsearch.databinding.FragmentRepositoryBinding
@@ -26,6 +27,7 @@ class RepositoryFragment : Fragment() {
     private val viewModel by viewModels<RepositoryViewModel>()
     private var ownerName = ""
     private var repoName = ""
+    private lateinit var contributorAdapter: ContributorAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -39,6 +41,7 @@ class RepositoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getQuotesGenres(ownerName, repoName)
+        contributorAdapter = ContributorAdapter()
         setupObserver()
     }
 
@@ -68,6 +71,11 @@ class RepositoryFragment : Fragment() {
             repoDesc.text = repo.description
             starCount.text = repo.stars.toString()
             forkCount.text = repo.forks.toString()
+            contributorRecyclerview.apply {
+                layoutManager = LinearLayoutManager(requireContext())
+                adapter = contributorAdapter
+            }
+            contributorAdapter.setContributors(repo.contributorList)
             openProjectButton.setOnClickListener {
                 loadUrlInWebView(repo.htmlUrl)
             }

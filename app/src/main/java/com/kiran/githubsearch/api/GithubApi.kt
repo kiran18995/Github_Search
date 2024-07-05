@@ -1,6 +1,7 @@
 package com.kiran.githubsearch.api
 
 import com.kiran.githubsearch.BuildConfig
+import com.kiran.githubsearch.data.models.Contributor
 import com.kiran.githubsearch.data.models.Repo
 import com.kiran.githubsearch.data.models.SearchResponse
 import retrofit2.http.GET
@@ -21,4 +22,9 @@ interface GithubApi {
     suspend fun getRepo(
         @Path("owner") owner: String, @Path("name") name: String
     ): Repo
+
+    @GET("repos/{owner}/{name}/contributors")
+    suspend fun getContributors(
+        @Path("owner") owner: String, @Path("name") name: String
+    ): List<Contributor>
 }
