@@ -17,7 +17,8 @@ Utilizes Jetpack Compose to construct a visually appealing interface.
 Implements a RecyclerView with CardViews to display search results.
 Enables saving the first 15 search results for offline browsing.
 Provides pagination to load additional results incrementally.
-<img src="https://github.com/kiran18995/Github_Search/assets/48232762/7509d72c-7c60-434f-b003-e82357867bd4" alt="My Image" width="200" height="400">
+
+<img src="https://github.com/kiran18995/Github_Search/assets/48232762/297e25a0-ca3f-4d54-a817-f9b3b3863abe" alt="My Image" width="200" height="400">
 
 Repository Details Screen:
 Navigates to a dedicated screen upon selecting a repository from the search results.
@@ -28,7 +29,8 @@ Project Link (opens in a WebView)
 Description
 Contributors (clickable)
 Lists contributors with the option to view their tagged repositories.
-<img src="https://github.com/kiran18995/Github_Search/assets/48232762/297e25a0-ca3f-4d54-a817-f9b3b3863abe" alt="My Image" width="200" height="400">
+
+<img src="https://github.com/kiran18995/Github_Search/assets/48232762/7509d72c-7c60-434f-b003-e82357867bd4" alt="My Image" width="200" height="400">
 
 Technical Stack
 
