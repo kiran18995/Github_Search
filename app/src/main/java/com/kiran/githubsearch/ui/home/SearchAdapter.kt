@@ -39,8 +39,7 @@ class SearchAdapter : PagingDataAdapter<Repo, SearchAdapter.SearchViewHolder>(Di
             currentRepo = repo
             binding.apply {
                 repositoryLogo.load(repo.owner.avatarUrl) {
-                    crossfade(true)
-                    placeholder(R.drawable.github_logo) // Replace with your placeholder image
+                    placeholder(R.drawable.github_logo)
                 }
                 val ownerNameValue = "@" + repo.owner.login
                 repoName.text = repo.name
@@ -50,7 +49,6 @@ class SearchAdapter : PagingDataAdapter<Repo, SearchAdapter.SearchViewHolder>(Di
                 forkCount.text = repo.forks.toString()
             }
         }
-
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
