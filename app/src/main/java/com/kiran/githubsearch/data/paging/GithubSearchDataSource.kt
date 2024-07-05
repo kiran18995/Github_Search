@@ -20,7 +20,7 @@ class GithubSearchDataSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Repo> {
         try {
             val position = params.key ?: STARTING_PAGE_INDEX
-            val response = githubApi.searchRepos(query, perPage)
+            val response = githubApi.searchRepos(query, perPage, position)
             return LoadResult.Page(
                 data = response.items,
                 prevKey = null,
