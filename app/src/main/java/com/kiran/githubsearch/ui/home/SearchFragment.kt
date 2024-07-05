@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kiran.githubsearch.R
 import com.kiran.githubsearch.databinding.FragmentSearchBinding
 import com.kiran.githubsearch.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -81,7 +82,11 @@ class SearchFragment : Fragment() {
                 when (it) {
                     is Resource.Error -> {
                         hideProgressBar()
-                        binding.searchWelcomeMessage.visibility = View.GONE
+                        binding.searchWelcomeMessage.visibility = View.VISIBLE
+                        binding.searchWelcomeMessage.text =
+                            it.error?.message ?: resources.getString(
+                                R.string.welcome_search_message
+                            )
                     }
 
                     is Resource.Loading -> {
@@ -94,8 +99,8 @@ class SearchFragment : Fragment() {
                     }
 
                     is Resource.EmptyData -> {
-                        binding.searchWelcomeMessage.visibility = View.VISIBLE
                         hideProgressBar()
+                        binding.searchWelcomeMessage.visibility = View.VISIBLE
                     }
                 }
             }

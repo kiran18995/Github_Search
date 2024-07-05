@@ -25,7 +25,7 @@ class SearchAdapter : PagingDataAdapter<Repo, SearchAdapter.SearchViewHolder>(Di
         }
 
         init {
-            binding.searchItem.setOnClickListener {
+            binding.container.setOnClickListener {
                 val bundle = Bundle().apply {
                     putString(OWNER_NAME, currentRepo.owner.login)
                     putString(REPO_NAME, currentRepo.name)
