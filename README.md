@@ -1,9 +1,6 @@
-<div style="background-color: yellow;">
-Recommended Configurations:
-- Android Studio latest (Koala)
-- Java 17
 
-</div>
+- <span style="background-color: yellow;">Android Studio latest (Koala)</span>
+- Java 17
 
 Project Description
 
