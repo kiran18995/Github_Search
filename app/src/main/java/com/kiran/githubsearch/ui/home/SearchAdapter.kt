@@ -20,15 +20,13 @@ class SearchAdapter : PagingDataAdapter<Repo, SearchAdapter.SearchViewHolder>(Di
         private lateinit var currentRepo: Repo
 
         private companion object {
-            private const val OWNER_NAME = "ownerName"
-            private const val REPO_NAME = "repoName"
+            private const val REPO = "repo"
         }
 
         init {
             binding.container.setOnClickListener {
                 val bundle = Bundle().apply {
-                    putString(OWNER_NAME, currentRepo.owner.login)
-                    putString(REPO_NAME, currentRepo.name)
+                    putParcelable(REPO, currentRepo)
                 }
                 Navigation.findNavController(it)
                     .navigate(R.id.actionSearchFragmentToRepositoryFragment, bundle)
