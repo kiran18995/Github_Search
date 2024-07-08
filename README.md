@@ -1,5 +1,4 @@
 Recommended Configurations:
-```diff
 - Android Studio latest (Koala)
 - Java 17
 
