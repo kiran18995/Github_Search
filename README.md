@@ -2,7 +2,7 @@ Recommended Configurations:
 - <span style="background-color: yellow;">Android Studio latest (Koala)</span>
 - Java 17
 
-[APK Download](app-debug.apk)
+[APK Download](https://github.com/kiran18995/Github_Search/releases)
 
 Project Description
 
