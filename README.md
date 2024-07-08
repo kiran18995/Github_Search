@@ -2,6 +2,8 @@ Recommended Configurations:
 - <span style="background-color: yellow;">Android Studio latest (Koala)</span>
 - Java 17
 
+[APK Download](https://drive.google.com/file/d/1j084fRqi4SXJi2HRqZcENUUV4v1lHEm-/view?usp=sharing)
+
 Project Description
 
 This project builds a mobile application using the GitHub API to search for repositories, explore details, and navigate to contributors' tagged repositories. It adheres to modern Android development best practices, leveraging MVVM architecture, Jetpack Compose for a declarative UI, Room for offline data storage, Coroutines for asynchronous operations, Retrofit for network communication, and LiveData for reactive data updates.
