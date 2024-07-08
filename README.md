@@ -1,7 +1,9 @@
+<div style="background-color: yellow; padding: 10px; margin-bottom: 10px;">
 Recommended Configurations:
 - Android Studio latest (Koala)
 - Java 17
 
+</div>
 
 Project Description
 
