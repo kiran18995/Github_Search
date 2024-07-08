@@ -15,33 +15,44 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.kiran.githubsearch.data.models.Repo
 import com.kiran.githubsearch.databinding.FragmentRepositoryBinding
+import com.kiran.githubsearch.di.AppModule.NetworkChecker
 import com.kiran.githubsearch.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class RepositoryFragment : Fragment() {
-
+    @Inject
+    lateinit var networkChecker: NetworkChecker
     private var _binding: FragmentRepositoryBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<RepositoryViewModel>()
-    private var ownerName = ""
-    private var repoName = ""
+    private var dbRepo: Repo? = null
     private lateinit var contributorAdapter: ContributorAdapter
+    private val isNetworkAvailable get() = networkChecker.isNetworkConnected()
+    private companion object {
+        private const val REPO = "repo"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRepositoryBinding.inflate(inflater, container, false)
-        ownerName = arguments?.getString("ownerName") ?: ""
-        repoName = arguments?.getString("repoName") ?: ""
+        dbRepo = arguments?.getParcelable(REPO)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getQuotesGenres(ownerName, repoName)
         contributorAdapter = ContributorAdapter()
+        if (isNetworkAvailable) {
+            viewModel.getQuotesGenres(dbRepo!!.owner.login, dbRepo!!.name)
+        } else {
+            dbRepo?.contributorList = emptyList()
+            setupViews(dbRepo!!)
+        }
+
         setupObserver()
     }
 

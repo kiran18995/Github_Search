@@ -9,4 +9,5 @@
     <string name="open_project_in_browser">Open project in browser</string>
     <string name="contributors_title">Contributors</string>
     <string name="contributor_avatar">contributor avatar</string>
+    <string name="loading_error_please_check_network_connection">Loading error (please check network connection)</string>
 </resources>

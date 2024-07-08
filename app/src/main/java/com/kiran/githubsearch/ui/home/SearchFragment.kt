@@ -86,7 +86,8 @@ class SearchFragment : Fragment() {
                         hideProgressBar()
                         Log.e("test error", "setupObserver: " + it.error)
                         binding.searchWelcomeMessage.visibility = View.VISIBLE
-                        binding.searchWelcomeMessage.text = "Loading error (please check network connection)"
+                        binding.searchWelcomeMessage.text =
+                            resources.getString(R.string.loading_error_please_check_network_connection)
                     }
 
                     is Resource.Loading -> {
