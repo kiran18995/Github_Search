@@ -1,8 +1,13 @@
 package com.kiran.githubsearch.data.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "RepoDatabase")
 data class Repo(
+    @PrimaryKey(autoGenerate = true)
+    val _id: Int? = null,
     @SerializedName("id") val id: Long,
     @SerializedName("name") val name: String,
     @SerializedName("full_name") val fullName: String,
@@ -15,7 +20,7 @@ data class Repo(
     @SerializedName("language") val language: String?,
     @SerializedName("homepage") val homepage: String?,
     @SerializedName("owner") val owner: Owner,
-    var contributorList: List<Contributor> = emptyList()
+    var contributorList: List<Contributor>? = null
 )
 
 data class SearchResponse(

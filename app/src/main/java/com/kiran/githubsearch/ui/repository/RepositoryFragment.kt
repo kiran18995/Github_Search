@@ -75,7 +75,7 @@ class RepositoryFragment : Fragment() {
                 layoutManager = LinearLayoutManager(requireContext())
                 adapter = contributorAdapter
             }
-            contributorAdapter.setContributors(repo.contributorList)
+            contributorAdapter.setContributors(repo.contributorList?: emptyList())
             openProjectButton.setOnClickListener {
                 loadUrlInWebView(repo.htmlUrl)
             }
