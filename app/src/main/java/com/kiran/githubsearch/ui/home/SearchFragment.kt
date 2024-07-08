@@ -1,6 +1,7 @@
 package com.kiran.githubsearch.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class SearchFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel by viewModels<SearchViewModel>()
     private lateinit var adapter: SearchAdapter
+    private var _query: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -51,10 +53,11 @@ class SearchFragment : Fragment() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
-                    if (it.isNotEmpty()) {
+                    if (it.isNotEmpty() && _query != query) {
                         showProgressBar()
                         adapter.submitData(lifecycle, PagingData.empty())
                         viewModel.setQuery(it)
+                        _query = query
                     }
                 }
                 return false
@@ -69,7 +72,6 @@ class SearchFragment : Fragment() {
 
     private fun showProgressBar() {
         binding.progressBar.isVisible = true
-        binding.searchWelcomeMessage.visibility = View.GONE
     }
 
     private fun hideProgressBar() {
@@ -82,11 +84,9 @@ class SearchFragment : Fragment() {
                 when (it) {
                     is Resource.Error -> {
                         hideProgressBar()
+                        Log.e("test error", "setupObserver: " + it.error)
                         binding.searchWelcomeMessage.visibility = View.VISIBLE
-                        binding.searchWelcomeMessage.text =
-                            it.error?.message ?: resources.getString(
-                                R.string.welcome_search_message
-                            )
+                        binding.searchWelcomeMessage.text = "Loading error (please check network connection)"
                     }
 
                     is Resource.Loading -> {
@@ -95,6 +95,7 @@ class SearchFragment : Fragment() {
 
                     is Resource.Success -> {
                         hideProgressBar()
+                        binding.searchWelcomeMessage.visibility = View.GONE
                         adapter.submitData(it.dataFetched)
                     }
 

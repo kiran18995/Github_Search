@@ -6,16 +6,21 @@ import androidx.paging.PagingData
 import com.kiran.githubsearch.api.GithubApi
 import com.kiran.githubsearch.data.models.Repo
 import com.kiran.githubsearch.data.paging.GithubSearchDataSource
+import com.kiran.githubsearch.db.RepoDatabase
+import com.kiran.githubsearch.di.AppModule
 import com.kiran.githubsearch.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GithubSearchRepository @Inject constructor(private val githubApi: GithubApi) {
+class GithubSearchRepository @Inject constructor(
+    private val githubApi: GithubApi, private val repoDatabase: RepoDatabase,
+    private val networkChecker: AppModule.NetworkChecker
+) {
     fun searchRepos(query: String): Flow<PagingData<Repo>> {
         return Pager(config = PagingConfig(
             pageSize = 1, enablePlaceholders = false, prefetchDistance = 20,
-        ), pagingSourceFactory = { GithubSearchDataSource(githubApi, query, 10) }).flow
+        ), pagingSourceFactory = { GithubSearchDataSource(githubApi, query, 10, repoDatabase, isNetworkAvailable = { networkChecker.isNetworkConnected() }) }).flow
     }
 
     suspend fun getRepoDetails(owner: String, name: String) = flow {

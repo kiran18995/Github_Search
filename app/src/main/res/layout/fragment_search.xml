@@ -78,7 +78,6 @@
         android:text="@string/welcome_search_message"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:visibility="gone"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
