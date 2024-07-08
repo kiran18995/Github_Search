@@ -1,3 +1,9 @@
+**Recommended Configurations:**
+```diff
+- Android Studio latest (Koala)
+- Java 17
+
+
 Project Description
 
 This project builds a mobile application using the GitHub API to search for repositories, explore details, and navigate to contributors' tagged repositories. It adheres to modern Android development best practices, leveraging MVVM architecture, Jetpack Compose for a declarative UI, Room for offline data storage, Coroutines for asynchronous operations, Retrofit for network communication, and LiveData for reactive data updates.
