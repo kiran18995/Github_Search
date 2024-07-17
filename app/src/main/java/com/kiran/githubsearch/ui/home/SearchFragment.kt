@@ -72,6 +72,7 @@ class SearchFragment : Fragment() {
 
     private fun showProgressBar() {
         binding.progressBar.isVisible = true
+        binding.searchWelcomeMessage.visibility = View.GONE
     }
 
     private fun hideProgressBar() {

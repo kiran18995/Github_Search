@@ -107,4 +107,11 @@ dependencies {
 
     // Shimmer
     implementation(libs.shimmer)
+
+    // Log
+    implementation(libs.timber)
+
+    // JSON
+    implementation(libs.moshi)
+    ksp(libs.moshi.codegen)
 }

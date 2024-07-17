@@ -10,4 +10,10 @@
     <string name="contributors_title">Contributors</string>
     <string name="contributor_avatar">contributor avatar</string>
     <string name="loading_error_please_check_network_connection">Loading error (please check network connection)</string>
+    <string name="network_internal_error">Our systems got an error, please retry again</string>
+    <string name="network_server_not_available">Our services are under maintenance, please retry after some time</string>
+    <string name="server_connection_error">Not able to connect, please retry again</string>
+    <string name="permission_not_available">You do not have the required permission!</string>
+    <string name="no_internet_connection" translatable="false">No Internet Connection!</string>
+    <string name="something_went_wrong">Something went wrong, please try again.</string>
 </resources>
