@@ -20,11 +20,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    loader: Loader,
+    private val loader: Loader,
     messenger: Messenger,
     private val repository: GithubSearchRepository,
     private val networkChecker: NetworkChecker
-) : BaseViewModel(loader, messenger) {
+) : BaseViewModel(messenger) {
     private val _repoList = MutableStateFlow<Resource<PagingData<Repo>>>(Resource.Loading())
     val repoList: MutableStateFlow<Resource<PagingData<Repo>>> = _repoList
 
@@ -40,6 +40,7 @@ class SearchViewModel @Inject constructor(
 
     @OptIn(FlowPreview::class)
     private fun searchRepos() {
+        loader.start()
         launchNetwork {
             currentQuery.debounce(500) // Debounce to avoid rapid API calls
                 .distinctUntilChanged().collectLatest { query ->

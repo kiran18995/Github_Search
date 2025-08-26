@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RepositoryViewModel @Inject constructor(
     loader: Loader, messenger: Messenger, private val repository: GithubSearchRepository
-) : BaseViewModel(loader, messenger) {
+) : BaseViewModel(messenger) {
     private val _repoDetails = MutableStateFlow<Resource<Repo>>(Resource.Loading())
     val repoDetails get() = _repoDetails
 

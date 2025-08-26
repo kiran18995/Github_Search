@@ -16,4 +16,5 @@
     <string name="permission_not_available">You do not have the required permission!</string>
     <string name="no_internet_connection" translatable="false">No Internet Connection!</string>
     <string name="something_went_wrong">Something went wrong, please try again.</string>
+    <string name="ok">OK</string>
 </resources>

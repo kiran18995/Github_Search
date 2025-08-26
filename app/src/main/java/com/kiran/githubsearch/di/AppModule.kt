@@ -3,9 +3,7 @@ package com.kiran.githubsearch.di
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.os.Build
 import androidx.room.Room
-import com.kiran.githubsearch.BuildConfig
 import com.kiran.githubsearch.api.GithubApi
 import com.kiran.githubsearch.db.RepoDatabase
 import dagger.Module
@@ -24,9 +22,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    private const val AUTHORIZATION_TOKEN = BuildConfig.API_READ_ACCESS_TOKEN
-    private const val AUTHORIZATION = "Authorization"
-    private const val BEARER = "Bearer"
     private const val TIMEOUT = 120L
 
     @Provides

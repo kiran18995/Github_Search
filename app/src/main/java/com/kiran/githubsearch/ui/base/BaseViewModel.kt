@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kiran.githubsearch.R
 import com.kiran.githubsearch.data.models.ApiErrorResponse
-import com.kiran.githubsearch.utils.Loader
 import com.kiran.githubsearch.utils.Logger
 import com.kiran.githubsearch.utils.Message
 import com.kiran.githubsearch.utils.Messenger
@@ -14,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 abstract class BaseViewModel(
-    private val loader: Loader, private val messenger: Messenger
+    private val messenger: Messenger
 ) : ViewModel() {
 
     companion object {

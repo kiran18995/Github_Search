@@ -39,6 +39,7 @@ class RepositoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentRepositoryBinding.inflate(inflater, container, false)
+        @Suppress("DEPRECATION")
         dbRepo = arguments?.getParcelable(REPO)
         return binding.root
     }
